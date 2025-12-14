@@ -51,6 +51,8 @@ export default function NotesClient() {
     closeModal();
   };
 
+  console.log('hello');
+
   return (
     <div className={css.app}>
       <Toaster position="top-center" />

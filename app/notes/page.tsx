@@ -7,7 +7,7 @@ import { fetchNotes } from '../../lib/api';
 import NotesClient from './Notes.client';
 
 type AppProps = {
-  searchParams: Promise<{ page: number; search: string; perPage: number }>;
+  searchParams: Promise<{ page: number; search: string }>;
 };
 
 export default async function App({ searchParams }: AppProps) {
