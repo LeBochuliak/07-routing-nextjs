@@ -55,6 +55,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
   const handleNoteForm = () => {
     setSearch('');
     closeModal();
+    setCurrentTag(undefined);
   };
 
   return (
