@@ -15,15 +15,14 @@ interface CreateNoteProps {
 interface FetchNotesProps {
     search?: string,
     page: number, 
-    tag?: string
+    currentTag?: string
 }
 
 const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${myKey}`;
 
-export async function fetchNotes({search, page, tag}: FetchNotesProps): Promise<FetchNotesResponse>{ 
-    
+export async function fetchNotes({search, page, currentTag}: FetchNotesProps): Promise<FetchNotesResponse>{ 
     const perPage: number = 12;
     const response = await axios.get<FetchNotesResponse>(
         'https://notehub-public.goit.study/api/notes',
@@ -32,7 +31,7 @@ export async function fetchNotes({search, page, tag}: FetchNotesProps): Promise<
                 search,   
                 page,
                 perPage,
-                tag,
+                tag: currentTag,
             }
         }
     );
