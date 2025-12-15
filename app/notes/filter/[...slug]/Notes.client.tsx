@@ -1,17 +1,17 @@
 'use client';
 
-import css from '../../components/NotesPage/NotesPage.module.css';
+import css from '../../../../components/NotesPage/NotesPage.module.css';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { fetchNotes } from '@/lib/api';
 import { useState, useEffect } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { toast } from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
-import SearchBox from '../../components/SearchBox/SearchBox';
-import Pagination from '../../components/Pagination/Pagination';
-import NoteList from '../../components/NoteList/NoteList';
-import Modal from '../../components/Modal/Modal';
-import NoteForm from '../../components/NoteForm/NoteForm';
+import SearchBox from '../../../../components/SearchBox/SearchBox';
+import Pagination from '../../../../components/Pagination/Pagination';
+import NoteList from '../../../../components/NoteList/NoteList';
+import Modal from '../../../../components/Modal/Modal';
+import NoteForm from '../../../../components/NoteForm/NoteForm';
 
 interface NotesClientProps {
   tag: string | undefined;
@@ -55,6 +55,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
   const handleNoteForm = () => {
     setSearch('');
     closeModal();
+    setPage(1);
     setCurrentTag(undefined);
   };
 
